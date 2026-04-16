@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int secret, guess, attempts = 0;
+    srand(time(NULL));
+    secret = rand() % 100 + 1;
+
+    printf("Guess the number (1-100):\n");
+
+    do {
+        scanf("%d", &guess);
+        attempts++;
+        if (guess > secret) {
+            printf("Lower! Try again: ");
+        } else if (guess < secret) {
+            printf("Higher! Try again: ");
+        }
+    } while (guess != secret);
+
+    printf("Correct! You found it in %d attempts.\n", attempts);
+    return 0;
+}
